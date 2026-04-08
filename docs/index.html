@@ -14,10 +14,14 @@
             <img id="test-image" src="./assets/images/test.png" alt="Test Image">
         </a-assets>
         <a-marker type="pattern" url="./assets/patterns/url-pattern.patt">
-            <a-gltf-model src="#dice-gltf"></a-gltf-model>
+            <a-gltf-model 
+                src="#dice-gltf"
+                roration="0 0 0"
+                animation="property: rotation; to:0 360 0; loop: true; dur: 1000"
+            ></a-gltf-model>
         </a-marker>
         <a-marker preset="hiro">
-            <a-plane src="#test-image" width="1" height="1" rotation="90 0 0"></a-plane>
+            <a-plane src="#test-image" width="1" height="1" rotation="0 0 90"></a-plane>
             <!-- <a-image src="#test-image" width="1" height="1"></a-image> -->
         </a-marker>
         <a-entity camera></a-entity>
