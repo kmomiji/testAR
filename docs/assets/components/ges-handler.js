@@ -1,6 +1,5 @@
-
 // インタラクト用ハンドラー 操作したいオブジェクトにつける。
-AFRAME.registerComponent('ges-handler', {
+AFRAME.registerComponent("ges-handler", {
     schema: {
         enabled: {default: true},
         rotationFactor: {default: 5},
@@ -16,25 +15,25 @@ AFRAME.registerComponent('ges-handler', {
         this.initialScale = this.el.object3D.scale.clone()
         this.scaleFactor = 1
 
-        this.el.sceneEl.addEventListener('markerFound', (e) => {
+        this.el.sceneEl.addEventListener("markerFound", (e) => {
             this.isVisible = true
         })
-        this.el.sceneEl.addEventListener('markerLost', (e) => {
+        this.el.sceneEl.addEventListener("markerLost", (e) => {
             this.isVisible = false
         })
     },
     update: function(){
         if(this.data.enabled){
-            this.el.sceneEl.addEventListener('onefingermove', this.handleRotation)
-            this.el.sceneEl.addEventListener('twofingermove', this.handleScale)
+            this.el.sceneEl.addEventListener("onefingermove", this.handleRotation)
+            this.el.sceneEl.addEventListener("twofingermove", this.handleScale)
         } else {
-            this.el.sceneEl.removeEventListener('onefingermove', this.handleRotation)
-            this.el.sceneEl.removeEventListener('twofingermove', this.handleScale)
+            this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation)
+            this.el.sceneEl.removeEventListener("twofingermove", this.handleScale)
         }
     },
     remove: function(){
-        this.el.sceneEl.removeEventListener('onefingermove', this.handleRotation)
-        this.el.sceneEl.removeEventListener('twofingermove', this.handleScale)
+        this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation)
+        this.el.sceneEl.removeEventListener("twofingermove", this.handleScale)
     },
 
     handleRotation: function(event){

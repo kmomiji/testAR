@@ -1,6 +1,6 @@
 
 // インタラクトを検知する a-sceneに付ける。
-AFRAME.registerComponent('ges-detector', {
+AFRAME.registerComponent("ges-detector", {
     schema: {
         element: {default: ""}
     },
@@ -19,16 +19,16 @@ AFRAME.registerComponent('ges-detector', {
         }
         // イベントリスナ設定
         this.emitGestureEvent = this.emitGestureEvent.bind(this)
-        this.targetElement.addEventListener('touchstart', this.emitGestureEvent)   
-        this.targetElement.addEventListener('touchend', this.emitGestureEvent)
-        this.targetElement.addEventListener('touchmove', this.emitGestureEvent)
+        this.targetElement.addEventListener("touchstart", this.emitGestureEvent)
+        this.targetElement.addEventListener("touchend", this.emitGestureEvent)
+        this.targetElement.addEventListener("touchmove", this.emitGestureEvent)
     },
 
     remove: function(){
         // イベントリスナ削除
-        this.targetElement.removeEventListener('touchstart', this.emitGestureEvent)   
-        this.targetElement.removeEventListener('touchend', this.emitGestureEvent)
-        this.targetElement.removeEventListener('touchmove', this.emitGestureEvent)
+        this.targetElement.removeEventListener("touchstart", this.emitGestureEvent)
+        this.targetElement.removeEventListener("touchend", this.emitGestureEvent)
+        this.targetElement.removeEventListener("touchmove", this.emitGestureEvent)
     },
 
     // イベントリスナ用関数
@@ -36,10 +36,7 @@ AFRAME.registerComponent('ges-detector', {
         const currentState = this.getTouchState(event)
         const previousState = this.internalState.previousState
         
-        const gestureContinues =
-            previousState &&
-            currentState &&
-            currentState.touchCount == previousState.touchCount
+        const gestureContinues = previousState && currentState && currentState.touchCount == previousState.touchCount
 
         const gestureEnded = previousState && !gestureContinues
         const gestureStarted = currentState && !gestureContinues
