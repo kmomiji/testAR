@@ -9,7 +9,7 @@
     <script src="./assets/components/ges-detector.js"></script>
     <script src="./assets/components/ges-handler.js"></script>
 </head>
-<body style="margin : 0px; overflow: hidden;">/
+<body style="margin : 0px; overflow: hidden;">
     <a-scene 
         embedded 
         arjs
@@ -22,10 +22,12 @@
             <img id="test-image" src="./assets/images/test.png" alt="Test Image">
         </a-assets>
         <a-marker type="pattern" url="./assets/patterns/url-pattern.patt">
+            <a-entity light="type:directional; castShadow:true;" position="1 1 1"></a-entity>
             <a-gltf-model ges-handler
                 class="collidable"
                 src="#dice-gltf"
                 roration="0 0 0"
+                shadow="recieve:false;"
             ></a-gltf-model>
         </a-marker>
         <a-marker preset="hiro">
