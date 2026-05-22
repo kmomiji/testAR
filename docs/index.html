@@ -21,7 +21,7 @@
             <a-asset-item id="dice-gltf" src="./assets/models/dice.glb"></a-asset-item>
             <img id="test-image" src="./assets/images/test.png" alt="Test Image">
         </a-assets>
-        <a-entity light="type:ambient; castShadow:true;" position="1 1 1"></a-entity>
+        <a-entity light="type:anbient; color:#CCC;"></a-entity>
         <a-marker type="pattern" url="./assets/patterns/url-pattern.patt">
             <a-gltf-model ges-handler
                 class="collidable"
@@ -31,7 +31,7 @@
             ></a-gltf-model>
         </a-marker>
         <a-marker preset="hiro">
-            <a-plane src="#test-image" width="1" height="1" rotation="0 0 0"></a-plane>
+            <a-plane src="#test-image/" width="1" height="1" rotation="0 0 0"></a-plane>
             <!-- <a-image src="#test-image" width="1" height="1"></a-image> -->
         </a-marker>
         <a-entity camera></a-entity>
