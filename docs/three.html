@@ -28,7 +28,8 @@
         const camera = new THREE.PerspectiveCamera(45, 960/540);
         const boxGeo = new THREE.BoxGeometry(500,500,500);
 
-        const boxMat = new THREE.MeshNormalMarerial();
+        const boxColor = new THREE.Color('skyblue');
+        const boxMat = new THREE.MeshToonMaterial(boxColor)
         const box = new THREE.Mesh(boxGeo, boxMat);
 
         scene.add(box); 
