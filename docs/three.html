@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARTestPage - Three.js AR</title>
     <script type="importmap">
         {
@@ -16,7 +15,7 @@
         import * as THREE from "three/webgpu";
 
         const renderer = new THREE.WebGPURenderer({
-            canvas: document.querySelector("#cv")
+            canvas: document.querySelector("#cv"),
         });
 
         const WIDTH = 960;
@@ -25,7 +24,6 @@
 
         // キャンバス設定
         renderer.setSize(WIDTH, HEIGHT);
-        renderer.setPixelRatio(devicePixelRatio);
         // アニメーション登録
         renderer.setAnimationLoop(tick);
 
@@ -36,7 +34,7 @@
 
         // カメラ
         const camera = new THREE.PerspectiveCamera(FOV, WIDTH/HEIGHT);
-        camera.position.set(0,0,+1000)
+        camera.position.set(0,0,+1000);
 
         // オブジェクト作成(box)
         const sphereGeo = new THREE.SphereGeometry(300,30,30);
