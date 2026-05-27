@@ -37,7 +37,7 @@
 
         // オブジェクト作成(box)
         const sphereGeo = new THREE.SphereGeometry(300,30,30);
-        const sphereMat = new THREE.MeshStandardMaterial({color: 0xFF0000});
+        const sphereMat = new THREE.MeshStandardMaterial({color: 0xff0000});
         const sphere = new THREE.Mesh(sphereGeo, sphereMat);
 
         // オブジェクトをシーンに追加
@@ -46,6 +46,8 @@
         // 方向光源
         const dirLight = new THREE.DirectionalLight(0xffffff);
         dirLight.position.set(1,1,1);
+
+        scene.add(dirLight);
 
 
         function tick(){
