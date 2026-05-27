@@ -7,14 +7,43 @@
     <script type="importmap">
         {
             "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+                "three": "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.webgpu.js"
             }
         }
+    </script>
+    <script type="module">
+        import * as THREE from "three/webgpu";
+
+        const renderer = new THREE.WebGPURenderer({
+            canvas: document.querySelector("#cv")
+        });
+
+        renderer.setSize(960, 540);
+        renderer.setPixelRatio(devicePixelRatio);
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+
+        const camera = new THREE.PerspectiveCamera(45, 960/540);
+        const boxGeo = new THREE.BoxGeometry(500,500,500);
+
+        const boxMat = new THREE.MeshNormalMarerial();
+        const box = new THREE.Mesh(boxGeo, boxMat);
+
+        scene.add(box); 
+
+        renderer.setAnimationLoop(tick);
+
+        function tick(){
+            // アニメーション
+            box.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+
     </script>
 </head>
 <body>
     <canvas id="cv"></canvas>
-    <script type="module" src="./assets/components/three/threefirst.js"></script>
 </body>
 </html>
