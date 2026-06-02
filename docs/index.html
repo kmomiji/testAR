@@ -10,6 +10,7 @@
     <script src="./assets/components/ges-handler.js"></script>
 </head>
 <body style="margin : 0px; overflow: hidden;">
+    <!-- AR.jsを絡めたマーカーARサンプル 
     <a-scene 
         embedded 
         arjs
@@ -21,7 +22,6 @@
             <a-asset-item id="dice-gltf" src="./assets/models/dice.glb"></a-asset-item>
             <img id="test-image" src="./assets/images/test.png" alt="Test Image">
         </a-assets>
-        <!-- <a-entity light="type:anbient; color:#CCC;" castShadow="true"></a-entity> -->
         <a-marker type="pattern" url="./assets/patterns/url-pattern.patt">
             <a-gltf-model ges-handler
                 class="collidable"
@@ -32,9 +32,22 @@
         </a-marker>
         <a-marker preset="hiro">
             <a-plane src="#test-image/" width="1" height="1" rotation="0 0 0"></a-plane>
-            <!-- <a-image src="#test-image" width="1" height="1"></a-image> -->
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
+    -->
+
+    <a-scene
+        webxr="optionalFeatures: hit-test;"
+        ar-hit-test="target: #dice-entity;"
+    >
+        <a-assets>
+            <a-asset-item id="dice" src="./assets/models/dice.glb"></a-asset-item>
+        </a-assets>
+
+        <a-entity id="dice-entity" src="#dice"></a-entity>
+    </a-scene>
+
+
 </body>
 </html>
