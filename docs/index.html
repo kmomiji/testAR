@@ -39,13 +39,12 @@
 
     <a-scene
         webxr="optionalFeatures: hit-test;"
-        ar-hit-test="target: #dice-entity;"
+        ar-hit-test="target: #obj;"
+        vr-mode-ui="enabled: false"
+        embedded
     >
-        <a-assets>
-            <a-asset-item id="dice" src="./assets/models/dice.glb"></a-asset-item>
-        </a-assets>
-
-        <a-entity id="dice-entity" src="#dice"></a-entity>
+        <a-box id="obj" color="#4cc3d9" depth="0.2" height="0.2" width="0.2" visible="false"></a-box>
+        <a-entity camera></a-entity>
     </a-scene>
 
 
